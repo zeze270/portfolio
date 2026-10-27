@@ -28,8 +28,8 @@ export const site: SiteInfo = {
   tagline: '在代码、电路和模型之间来回横跳',
   about:
     '你好，我是李涵，大连民族大学信息与通信工程学院物联网工程专业大三学生。平时既玩 51 单片机和 Proteus 仿真，也写 Python 训练过小语言模型，对嵌入式、后端和 AI 应用都有兴趣。正在一点点把自己做过的东西整理到这个站上。',
-  email: 'your-email@example.com', // TODO: 换成你自己的邮箱
-  github: 'https://github.com/yourname', // TODO: 换成你自己的 GitHub 地址
+  email: '2703272030@qq.com',
+  github: 'https://github.com/zeze270',
   skills: [
     {
       category: '编程语言',
@@ -61,7 +61,7 @@ export const site: SiteInfo = {
       summary:
         'Manifest V3 扩展，在淘宝/京东/拼多多详情页一键抓取全部商品图，可视化勾选后批量打包下载为 PNG。',
       tech: ['JavaScript', 'Chrome Extension', 'Canvas'],
-      github: '',
+      github: 'https://github.com/zeze270/image-grabber',
     },
     {
       name: '51 单片机课程设计',
