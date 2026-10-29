@@ -1,3 +1,5 @@
+import { reactive, watch } from 'vue'
+
 export interface SkillGroup {
   category: string
   items: string[]
@@ -22,7 +24,7 @@ export interface SiteInfo {
   projects: Project[]
 }
 
-export const site: SiteInfo = {
+export const defaultSite: SiteInfo = {
   name: '李涵',
   title: '大连民族大学 · 物联网工程 · 大三在读',
   tagline: '在代码、电路和模型之间来回横跳',
@@ -78,4 +80,31 @@ export const site: SiteInfo = {
       github: '',
     },
   ],
+}
+
+const STORAGE_KEY = 'portfolio_data'
+
+function load(): SiteInfo {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (raw) return { ...defaultSite, ...JSON.parse(raw) }
+  } catch (e) {
+    console.warn('load portfolio data failed', e)
+  }
+  return JSON.parse(JSON.stringify(defaultSite))
+}
+
+export const site = reactive<SiteInfo>(load())
+
+watch(
+  site,
+  (val) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(val))
+  },
+  { deep: true }
+)
+
+export function resetSite() {
+  localStorage.removeItem(STORAGE_KEY)
+  location.reload()
 }
