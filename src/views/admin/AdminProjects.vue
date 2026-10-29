@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { site } from '../../data/site'
+import { toast } from '../../utils/toast'
 
 function addProject() {
   site.projects.push({ name: '新项目', summary: '', tech: [], github: '' })
+  toast('已新增项目')
 }
 function removeProject(i: number) {
-  if (confirm(`删除项目「${site.projects[i].name}」？`)) site.projects.splice(i, 1)
+  if (confirm(`删除项目「${site.projects[i].name}」？`)) {
+    site.projects.splice(i, 1)
+    toast('已删除项目')
+  }
 }
 </script>
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { setLoggedIn } from '../../router'
+import { toasts } from '../../utils/toast'
 
 const router = useRouter()
 const links = [
@@ -36,5 +37,13 @@ function logout() {
     <main class="flex-1 p-8 overflow-auto">
       <router-view />
     </main>
+
+    <div class="fixed bottom-6 right-6 flex flex-col gap-2 z-50">
+      <div
+        v-for="t in toasts"
+        :key="t.id"
+        class="bg-primary text-white px-4 py-2 rounded-lg shadow-card text-sm"
+      >{{ t.msg }}</div>
+    </div>
   </div>
 </template>

@@ -4,6 +4,7 @@ import { site } from '../data/site'
 
 <template>
   <footer class="border-t border-borderSoft py-8 text-center text-sm text-textSub">
-    © {{ new Date().getFullYear() }} {{ site.name }} · 用 Vue 3 + Vite + Tailwind 制作
+    <div>© {{ new Date().getFullYear() }} {{ site.name }} · 用 Vue 3 + Vite + Tailwind 制作</div>
+    <router-link to="/admin" class="text-xs text-textSub hover:text-primary mt-2 inline-block opacity-60">后台管理</router-link>
   </footer>
 </template>
